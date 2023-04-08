@@ -1,7 +1,9 @@
+import Card from "@/components/card";
+
 export default function Home() {
   return (
-    <div className="bg-gray-100 bg-fixed h-max">
-      <h1 className="text-lg text-sky-500"> Hello world!</h1>
+    <div className="h-screen p-6">
+      <Card title="card title" termCount="3" />
     </div>
   );
 }
