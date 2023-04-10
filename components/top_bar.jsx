@@ -2,6 +2,8 @@ import { useState } from "react";
 import Logo from "./logo";
 import TopBarMenuLinks from "./top_bar_menu_links";
 import MobileMenu from "./mobile-menu";
+import Link from "next/link";
+
 export default function TopBar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
