@@ -32,6 +32,7 @@ module.exports = {
         "ebony-clay": "#282E3E",
         comet: "#626A82",
         "gull-gray": "#939BB4",
+        "violet-red": "#F6406C",
       },
     },
   },
