@@ -27,7 +27,7 @@ export default function TopBar() {
             />
             <Logo className="ml-3" />
             <Link href="/create-cardset">
-              <button class="ml-4 bg-lightning-yellow hover:filter hover:brightness-75 hover:contrast-125 rounded-full h-10 w-10 flex items-center justify-center text-white font-bold text-xl focus:outline-none">
+              <button className="ml-4 bg-lightning-yellow hover:filter hover:brightness-75 hover:contrast-125 rounded-full h-10 w-10 flex items-center justify-center text-white font-bold text-xl focus:outline-none">
                 +
               </button>
             </Link>
