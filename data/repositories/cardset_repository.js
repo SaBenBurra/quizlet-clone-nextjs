@@ -4,7 +4,8 @@ import CardsetApiProvider from "../providers/api/cardset_api_provider";
 
 export default class CardsetRepository {
   static async getAll() {
-    const jsonResponse = await CardsetApiProvider.getAll();
+    const response = await CardsetApiProvider.getAll();
+    const jsonResponse = await response.json();
     const data = jsonResponse.data;
 
     let cardsetList = [];
