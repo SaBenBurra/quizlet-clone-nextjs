@@ -12,7 +12,11 @@ export default function CardInput(props) {
       definition: definitionInput.value,
       term: termInput.value,
     };
-    console.log(inputs);
+    props.onInput(props.index, inputs);
+  }
+
+  function handleDelete() {
+    props.onDelete(props.index);
   }
 
   return (
@@ -24,7 +28,10 @@ export default function CardInput(props) {
         <h2 className="absolute bottom-3 left-3 text-athens-gray lg:relative lg:bottom-0 lg:left-0">
           {props.index}
         </h2>
-        <span className="absolute bottom-3 right-3 lg:relative lg:bottom-0 lg:left-0 cursor-pointer">
+        <span
+          className="absolute bottom-3 right-3 lg:relative lg:bottom-0 lg:left-0 cursor-pointer"
+          onClick={handleDelete}
+        >
           <svg
             className="w-5 h-5 text-violet-red"
             xmlns="http://www.w3.org/2000/svg"
@@ -41,9 +48,14 @@ export default function CardInput(props) {
         <TextInput
           placeholder="Enter definition..."
           className="definitionInput mb-8 lg:mb-0 lg:h-12"
+          onInput={handleInput}
         />
         <div className="hidden lg:block w-20"></div>
-        <TextInput placeholder="Enter term..." className="termInput lg:h-12" />
+        <TextInput
+          placeholder="Enter term..."
+          className="termInput lg:h-12"
+          onInput={handleInput}
+        />
       </div>
     </div>
   );
