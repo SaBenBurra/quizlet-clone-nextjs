@@ -21,7 +21,7 @@ export default class CardsetApiProvider {
     const response = await fetch(
       `${process.env.API_URL}/cardsets/${cardsetId}`,
       {
-        method: "POST",
+        method: "PUT",
         headers: {
           "Content-Type": "application/json",
         },
