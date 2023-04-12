@@ -18,4 +18,19 @@ export default class CardsetRepository {
     }
     return cardsetList;
   }
+
+  static async create(cardsetName) {
+    const response = await CardsetApiProvider.create(cardsetName);
+    const jsonResponse = await response.json();
+    const data = jsonResponse.data;
+    return data;
+  }
+
+  static async update(cardsetId, cardsetName, cardList) {
+    const response = await CardsetApiProvider.update(
+      cardsetId,
+      cardsetName,
+      cardList
+    );
+  }
 }
