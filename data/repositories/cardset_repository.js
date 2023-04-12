@@ -1,6 +1,7 @@
 import Cardset from "@/entities/cardset";
 
 import CardsetApiProvider from "../providers/api/cardset_api_provider";
+import Router from "next/router";
 
 export default class CardsetRepository {
   static async getAll() {
@@ -16,21 +17,45 @@ export default class CardsetRepository {
         new Cardset(dataObject.name, dataObject.id, dataObject.cardCount, [])
       );
     }
+
     return cardsetList;
   }
 
-  static async create(cardsetName) {
-    const response = await CardsetApiProvider.create(cardsetName);
-    const jsonResponse = await response.json();
-    const data = jsonResponse.data;
-    return data;
+  static async create(cardsetName, cardList) {
+    try {
+      let response = await CardsetApiProvider.create(cardsetName);
+      let jsonResponse = await response.json();
+      let data = jsonResponse.data;
+      let cardsetId = data.id;
+
+      response = await CardsetApiProvider.update(
+        cardsetId,
+        cardsetName,
+        cardList
+      );
+      jsonResponse = await response.json();
+      data = jsonResponse.data;
+      alert("Success!");
+      Router.push("/");
+      return data;
+    } catch {
+      alert("error");
+      return;
+    }
   }
 
   static async update(cardsetId, cardsetName, cardList) {
-    const response = await CardsetApiProvider.update(
-      cardsetId,
-      cardsetName,
-      cardList
-    );
+    try {
+      const response = await CardsetApiProvider.update(
+        cardsetId,
+        cardsetName,
+        cardList
+      );
+    } catch {
+      alert("error");
+      return;
+    }
+
+    alert("Success!");
   }
 }
