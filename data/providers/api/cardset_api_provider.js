@@ -33,4 +33,11 @@ export default class CardsetApiProvider {
     );
     return response;
   }
+
+  static async getById(cardsetId) {
+    const response = await fetch(
+      `${process.env.API_URL}/cardsets/${cardsetId}`
+    );
+    return response;
+  }
 }

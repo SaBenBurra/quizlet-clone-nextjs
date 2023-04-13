@@ -1,7 +1,7 @@
 import Cardset from "@/entities/cardset";
+import Router from "next/router";
 
 import CardsetApiProvider from "../providers/api/cardset_api_provider";
-import Router from "next/router";
 
 export default class CardsetRepository {
   static async getAll() {
@@ -57,5 +57,17 @@ export default class CardsetRepository {
     }
 
     alert("Success!");
+  }
+
+  static async getById(cardsetId) {
+    try {
+      const response = await CardsetApiProvider.getById(cardsetId);
+      const jsonResponse = await response.json();
+      const data = jsonResponse.data;
+      return data;
+    } catch {
+      alert("error");
+      return;
+    }
   }
 }
