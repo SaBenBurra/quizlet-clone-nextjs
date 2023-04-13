@@ -14,11 +14,12 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="h-screen p-6">
+    <div className="h-screen p-6 lg:flex lg:flex-wrap lg:justify-center">
       {cardsets.map((cardset) => (
         <CardsetListItem
           key={cardset.id}
           title={cardset.name}
+          id={cardset.id}
           cardCount={cardset.cardCount}
         />
       ))}
